@@ -11,7 +11,7 @@ Requirements
 
 Integrating BugSense in your project is very easy. Just follow the steps below.
 
-1. Download the <a href="">BugSense-iOS[<strong></strong>].zip</a><strong><a href="/releases/ios" id="releases">(Release Notes)</a></strong> file, and unzip it.
+1. Download the <a href="">BugSense-iOS[<strong></strong>].zip</a><strong> <a href="/releases/ios" id="releases">(Release Notes)</a></strong> file, and unzip it.
 2. In Xcode, select the target you want to use and, in the **Build Phases** tab expand the **Link Binary With Libraries*8 section, press the + button, then press **Add Other...**. In the dialog box that appears, go to the framework's location and select it. (The framework is a folder and you should add the whole folder into your project.)
 3. The framework will appear at the top of the **Link Binary With Libraries** section and will also be added to your project files (left-hand pane).
 4. BugSense depends on **SystemConfiguration.framework** and **libz.dylib**. Add them to your project by selecting them from the list of frameworks in **Link Binary With Libraries**.

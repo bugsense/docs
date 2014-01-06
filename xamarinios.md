@@ -20,7 +20,7 @@ To install the BugSense NuGet package by using the [Package Manager Console](htt
 
 ```Install-Package BugSense.Xamarin.iOS```
 
-4. Alternatively, you can download the <a href="">bugsense-xamarin-ios-<strong></strong>.zip</a><strong><a href="/releases/xamarin-ios" id="releases">(Release Notes)</a></strong> file & and add it manually to your project.
+4. Alternatively, you can download the <a href="">bugsense-xamarin-ios-<strong></strong>.zip</a><strong> <a href="/releases/xamarin-ios" id="releases">(Release Notes)</a></strong> file & and add it manually to your project.
 
 To install the BugSense SDK by using the Package Manager window in Visual Studio:
 
