@@ -4,8 +4,8 @@
 
 Requirements
 
-* BugSense for iOS works with iOS 4.0+, armv7+armv7s, with both device and simulator support.
-* BugSense can be used with Xcode 4.2/iOS 5.0 and later.
+1. BugSense for iOS works with iOS 4.0+, armv7+armv7s, with both device and simulator support.
+2. BugSense can be used with Xcode 4.2/iOS 5.0 and later.
 
 #### Integration
 
