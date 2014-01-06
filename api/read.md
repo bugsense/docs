@@ -18,7 +18,7 @@ Here are some examples of supported API commands, and the corresponding response
 
 Response
 
-```json
+```js
 {
     "order": "created",
     "total": 1,
@@ -105,7 +105,7 @@ Response
 
 Response
 
-```json
+```js
 {
    "unique_affected_users": [3, 0, 4, 3, 2, 1, 0],
    "crashes": [3, 0, 4, 3, 2, 1, 0],

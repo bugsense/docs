@@ -8,7 +8,7 @@ Sending an error to Bugsense is quite easy. All you have to do is to send a POST
 
 The POST data should have a data param containing a (URL escaped) stringified JSON object with the error data. Sample JSON object for Android:
 
-```json
+```js
 {
    "client": {
       "name": "bugsense-android", // Obligatory
