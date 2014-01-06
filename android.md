@@ -18,7 +18,7 @@
       <uses-permission android:name="android.permission.INTERNET" />
       ```
 
-      to your app's **AndroidManifest.xml** file. BugSense uses this permission to send the crash reports and performance metrics. 
+      to your app's **AndroidManifest.xml** file. BugSense uses this permission to send the crash reports and performance metrics.
 
 2.    Next step is to add the BugSenseHandler in your activity before setContentView. Then you are ready to go!
 
@@ -153,47 +153,47 @@ If you are using [ProGuard](http://www.saikoa.com/proguard), you should add the 
 In order to use Proguard with BugSense successfully we suggest you use the following Proguard settings:
 
 ```java
--optimizationpasses 25 
--dontusemixedcaseclassnames 
--dontskipnonpubliclibraryclasses 
--dontpreverify 
--verbose 
--optimizations !code/simplification/arithmetic,!field/*,!class/merging/* 
--printmapping out.map 
--renamesourcefileattribute SourceFile 
--keepattributes SourceFile,LineNumberTable 
--keep class com.bugsense.** { *; } 
--keep public class * extends android.app.Activity 
--keep public class * extends android.app.Application 
--keep public class * extends android.app.Service 
--keep public class * extends android.content.BroadcastReceiver 
--keep public class * extends android.content.ContentProvider 
--keep public class * extends android.app.backup.BackupAgentHelper 
--keep public class * extends android.preference.Preference 
--keep public class com.android.vending.licensing.ILicensingService 
+-optimizationpasses 25
+-dontusemixedcaseclassnames
+-dontskipnonpubliclibraryclasses
+-dontpreverify
+-verbose
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+-printmapping out.map
+-renamesourcefileattribute SourceFile
+-keepattributes SourceFile,LineNumberTable
+-keep class com.bugsense.** { *; }
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Application
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
+-keep public class * extends android.app.backup.BackupAgentHelper
+-keep public class * extends android.preference.Preference
+-keep public class com.android.vending.licensing.ILicensingService
 
--keepclasseswithmembernames class * { 
-    native <methods>; 
-} 
+-keepclasseswithmembernames class * {
+    native <methods>;
+}
 
--keepclasseswithmembers class * { 
-    public <init>(android.content.Context, android.util.AttributeSet); 
-} 
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet);
+}
 
--keepclasseswithmembers class * { 
-    public <init>(android.content.Context, android.util.AttributeSet, int); 
-} 
+-keepclasseswithmembers class * {
+    public <init>(android.content.Context, android.util.AttributeSet, int);
+}
 
--keepclassmembers class * extends android.app.Activity { 
-   public void *(android.view.View); 
-} 
+-keepclassmembers class * extends android.app.Activity {
+   public void *(android.view.View);
+}
 
--keepclassmembers enum * { 
-    public static **[] values(); 
-    public static ** valueOf(java.lang.String); 
-} 
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
 
--keep class * implements android.os.Parcelable { 
+-keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
 ```
 
@@ -220,7 +220,7 @@ setLogging(int lines, String filter)
 BugSense by default sends the last 5000 lines with no filter. Filtering uses the exact same filtering mechanism as LogCat uses. **You can find documentation** [here](http://developer.android.com/tools/debugging/debugging-log.html#filteringOutput).
 
 ```java
-// For example if you want to get the last 1000 lines and log all messages 
+// For example if you want to get the last 1000 lines and log all messages
 // with priority level "warning" and higher
 BugSenseHandler.setLogging(1000, "*:W");
 
@@ -247,7 +247,7 @@ BugSenseHandler.sendEvent("button1 pressed");
 
 ### Localize Fix Notifications
 
-In order to localize the fix notification, use the **setLocalizedNotification** method passing the Strings for the ticker, the title and the message. For example: 
+In order to localize the fix notification, use the **setLocalizedNotification** method passing the Strings for the ticker, the title and the message. For example:
 
 ```java
 BugSenseHandler.setLocalizedNotification("Mi app", "Lo hemos corregido", "Por favor, actualice su aplicacion, este error ha sido corregido!");
@@ -308,17 +308,17 @@ If you want to keep track of the number of the apps that are running along with 
 
 1.    If you are using ACRA 4.x, you can use BugSense as your backend.
 
-      The only change you need to do is specify in formUri BugSense's url and your API key: 
+      The only change you need to do is specify in formUri BugSense's url and your API key:
 
       ```java
-      @ReportsCrashes(formUri = "http://www.bugsense.com/api/acra?api_key=YOUR_API_KEY", formKey="") 
+      @ReportsCrashes(formUri = "http://www.bugsense.com/api/acra?api_key=YOUR_API_KEY", formKey="")
       ```
 2.    Custom Data
 
-      If you want to send Custom Data with ACRA, you should use the **putCustomData** method. For example 
+      If you want to send Custom Data with ACRA, you should use the **putCustomData** method. For example
 
       ```java
-      ACRA.getErrorReporter().putCustomData("myKey1", "myValue1"); 
+      ACRA.getErrorReporter().putCustomData("myKey1", "myValue1");
       ```
 
       You can also tag an exception if you add a key named "tag" in the Custom Data, e.g
