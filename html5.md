@@ -2,7 +2,7 @@
 
 ### Using the Javascript library
 
-Download the <a href="">bugsense-<strong></strong>.js</a><strong> <a href="/releases/html5" id="releases">(Release Notes)</a></strong> file and store in it along with your other Javascript files.
+Download the <a href="">bugsense-<strong></strong>.js</a><strong> <a href="/releases/html5" id="releases">(Release Notes)</a></strong> file (or download the [minified version](https://github.com/bugsense/bugsense.js/blob/master/bugsense.min.js)) and store in it along with your other Javascript files.
 
 You can also use [Bower](http://bower.io/) to install BugSense in your project.
 
