@@ -62,27 +62,27 @@ try {
 You can add extraData to the BugSense crash reports as well as breacrumbs to help you debug your app faster!
 
 #### Managing extraData
-In order to add extra data in your instace, you can use the ```bugsense.addExtraData``` function.
+In order to add extra data in your instace, you can use the **bugsense.addExtraData** function.
 ```js
 /* add metadata */
 bugsense.addExtraData( 'user_level', 'paid' );
 bugsense.addExtraData( 'account', 'CEO' );
 ```
 
-If you want to remove extra data, you can use the ```bugsense.removeExtraData``` and passing the key as a parameter.
+If you want to remove extra data, you can use the **bugsense.removeExtraData** and passing the key as a parameter.
 ```js
 /* Removing metadata by key */
 bugsense.removeExtraData('user_level');
 ```
 
-Or you can clear all metadata by using ```bugsense.clearExtraData```.
+Or you can clear all metadata by using **bugsense.clearExtraData**.
 ```js
 /* Clear all metadata */
 bugsense.clearExtraData();
 ```
 
 #### Managing Breadcrumbs
-By adding breadcrumbs to your code you can easily see the trail the user followed before getting the crash. Just leave a breadcrumb by using ```bugsense.leaveBreadcrumb```.
+By adding breadcrumbs to your code you can easily see the trail the user followed before getting the crash. Just leave a breadcrumb by using **bugsense.leaveBreadcrumb**.
 ```js
 /* leave breadcrumb */
 bugsense.leaveBreadcrumb( 'Fetch Friendlist' );
