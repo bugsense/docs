@@ -1,4 +1,4 @@
-## Windows Phone 8
+## Windows Phone 7
 
 ### Using the Windows Phone 8 library
 
