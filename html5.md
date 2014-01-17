@@ -38,7 +38,7 @@ Include the script in your HTML page and initialize it.
 </script>
 ```
 
-For more options, read our [API docs](https://github.com/bugsense/bugsense.js/blob/master/README.md).
+*For more initialization options, read our [API docs](https://github.com/bugsense/bugsense.js/blob/master/README.md).*
 
 Older mobile browsers do not support the window.onerror callback and therefore the plugin will not receive any uncaught exception.
 
