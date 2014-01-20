@@ -1,6 +1,6 @@
 ## Windows Phone 7
 
-### Using the Windows Phone 8 library
+### Using the Windows Phone 7 library
 
 **Requirements**
 
