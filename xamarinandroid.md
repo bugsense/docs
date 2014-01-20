@@ -50,12 +50,6 @@ public class Activity1 : Activity
 }
 ```
 
-If you're in debugging mode, and you don't want to send the exceptions to BugSense, you can use the **HandleWhileDebugging** property.
-
-```c#
-BugSenseHandler.Instance.HandleWhileDebugging = false;
-```
-
 Now you can ship your application and stay cool. We will make sure you won't miss a bug.
 
 ### End user communication
@@ -72,7 +66,7 @@ To use BugSense to log handled exceptions and send useful custom data:
 // Get the global LimitedCrashExtraData list.
 LimitedCrashExtraDataList extras = BugSenseHandler.Instance.CrashExtraData;
 
-// Add some global extras.
+// Add some global extras. 
 extras.Add(new CrashExtraData
 {
    Key = "TestApp1",
@@ -139,21 +133,20 @@ Be aware that the parameter for extra data is optional; simply invoke the method
 
 You can use BugSense to immediately try to send an exception with custom data.
 
-Just as there are **LogException** and **LogExceptionAsync** methods, there are **SendException** and **SendExceptionAsync** methods.
+This method will try to send the exception. If that fails for any reason, it will log the exception to send upon application restart.
 
-These methods will try to send the exception. If that fails for any reason, it will log the exception to be sent upon application restart.
 
 ```c#
 LimitedCrashExtraDataList extrasExtraDataList = new LimitedCrashExtraDataList
 {
-  new CrashExtraData("TestApp1", "Log Exception Message1"),
-  new CrashExtraData("TestApp2", "Log Exception Message2")
+  new CrashExtraData("TestApp1", "Send Exception Message1"),
+  new CrashExtraData("TestApp2", "Send Exception Message2")
 };
-// Synchronous
-BugSenseResponseResult logResult = BugSenseHandler.Instance.SendException(exception, extrasExtraDataList);
-// Asynchronous
-BugSenseResponseResult logResult = await BugSenseHandler.Instance.SendExceptionAsync(exception, extrasExtraDataList);
+
+BugSenseResponseResult sendResult = await BugSenseHandler.Instance.SendExceptionAsync(exception, extrasExtraDataList);
 ```
+
+Note that the LimitedCrashExtraDataList second parameter is optional, you can omit if you want and just send an exception report with no custom data.
 
 #### Search by username
 
@@ -178,12 +171,12 @@ BugSenseHandler.Instance.ClearBreadCrumbs();
 LimitedCrashExtraDataList extras = BugSenseHandler.Instance.CrashExtraData;
 extras.Add(new CrashExtraData
 {
-  Key = "TestApp1",
-  Value = "After Refactor 1"
+  Key = "TestKey1",
+  Value = "CustomGlobalExtraData"
 });
 
 // or with the following method adding an instance directly
-BugSenseHandler.Instance.AddCrashExtraData(new CrashExtraData { Key = "TestKey", Value = "TestValue" });
+BugSenseHandler.Instance.AddCrashExtraData(new CrashExtraData { Key = "TestKey2", Value = "TestValue" });
 
 // Clear global custom data
 BugSenseHandler.Instance.ClearCrashExtraData ();
@@ -191,6 +184,8 @@ BugSenseHandler.Instance.ClearCrashExtraData ();
 // Remove a custom extra data instance with key
 BugSenseHandler.Instance.RemoveCrashExtraData("A Key To Remove");
 ```
+
+Note that global custom extra data are merged with additional extra data to the specific exception passed in the LogException/LogExceptionAsync or SendExceptionAsync.
 
 #### Set an action to be executed before the app crashes (save state)
 
@@ -205,10 +200,12 @@ BugSenseHandler.Instance.LastActionBeforeTerminate(Debug.WriteLine("Last Action 
 You can use BugSense alongside the Visual Studio debugger.
 
 ```c#
-// You can set the HandleWhileDebugging property to true
+// You can set the HandleWhileDebugging property to false and any requests will be ignored.
 // This property is true by default
 BugSenseHandler.Instance.HandleWhileDebugging = true;
 ```
+
+Note that this property is explicit to the SDK and have no impact to the debugger attached in your application, do not release your application with this property set to false.
 
 #### Track an event
 
@@ -216,14 +213,11 @@ You can use BugSense to track a specific event.
 
 ```c#
 // Log an event using the following method
-BugSenseLogResult result = BugSenseHandler.Instance.LogEvent("Test Log Event!");
+BugSenseLogResult logResultSync = BugSenseHandler.Instance.LogEvent("Test Log Event!");
+BugSenseLogResult logResultAsync = await BugSenseHandler.Instance.LogEventAsync("Test Log Event!");
 
 // Try to send an event immediately
-BugSenseResponseResult result = BugSenseHandler.Instance.SendEvent("Test Send Event!");
-
-// Async equivalent
-BugSenseLogResult result = await BugSenseHandler.Instance.LogEventAsync("Test Log Event!");
-BugSenseResponseResult result = await BugSenseHandler.Instance.SendEventAsync("Test Send Event!");
+BugSenseResponseResult sendResultAsync = BugSenseHandler.Instance.SendEventAsync("Test Send Event!");
 ```
 
 #### CrashOnLastRun example
@@ -233,6 +227,7 @@ Add the following code to the **App.xaml.cs** file, or to your **MainPage.xaml.c
 ```c#
 this.Loaded += async (sender, args) =>
 {
+  // Delay to run to give a chance for the pending requests to send on the InitAndStartSession.
   await Task.Delay(5000);
   int totalCrashes = await BugSenseHandler.Instance.GetTotalCrashesNum();
   Debug.WriteLine("TotalCrashes: {0}", totalCrashes);
@@ -248,6 +243,7 @@ this.Loaded += async (sender, args) =>
 #### Async void and unobserved task exceptions
 
 BugSense will log any asynchronous unawaited void or unobserved task exceptions.
+In general there is no need to run this explicitly, but in platforms like the Windows Phone the SynchronizationContext might not be initializes in the system in early phase like the App constructor, so a good practice would be to register in your main application page.
 
 ```c#
 // Example
@@ -272,9 +268,9 @@ You can register to BugSense events and get notified when unhadled exceptions an
 ```c#
 // Register to the UnhandledExceptionHandled event to get information when an unhandled exception is handled by BugSense.
 BugSenseHandler.Instance.UnhandledExceptionHandled += (sender, response) =>
-                Debug.WriteLine("Exception of type {0} handled by BugSense {1}\r\nAction: {2} with ClientRequest: {3}",
+                Debug.WriteLine("Exception of type {0} handled by BugSense {1}\r\nwith ClientRequest: {2}",
                     response.ExceptionObject.GetType(), response.HandledSuccessfully ? "successfully." : "unsuccessfully.",
-                    response.HandleAction, response.ClientJsonRequest);
+                    response.ClientJsonRequest);
 
 // Register to the LoggedRequestHandled event to get notified when a logged request is handled by BugSense.
 BugSenseHandler.Instance.LoggedRequestHandled += (sender, args) =>
@@ -292,4 +288,3 @@ BugSenseHandler.Instance.CloseSession();
 // Async equivalent
 await BugSenseHandler.Instance.CloseSessionAsync();
 ```
-
