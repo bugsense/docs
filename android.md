@@ -59,9 +59,9 @@
       BugSenseHandler.flush(MyActivity.this);
       ```
 
-### Features
+## Features
 
-#### Add Extra Data
+### Add Extra Data
 
 You have the option to add extra custom information to the crash reports. In order to do this, use the crash extra map.
 
@@ -95,7 +95,7 @@ If you want to clear the extra data completely, use the **clearCrashExtraData** 
 BugSenseHandler.clearCrashExtraData();
 ```
 
-#### Search by username
+### Search by username
 
 BugSense allows to track closely the experience of any given users. Simply use the setUserIdentifier method to provide a user identifiers like an id number from you database, email, push id, username. In your dashboard, you will search for errors that affect that user. This is a great feature for apps with high ARPU or apps deployed in an MDM environment or during QA.
 
@@ -104,7 +104,7 @@ BugSense allows to track closely the experience of any given users. Simply use t
 BugSenseHandler.setUserIdentifier(String userIdentifier);
 ```
 
-#### Log Handled Exceptions
+### Log Handled Exceptions
 
 BugSense also gives you the ability to log handled exceptions, for example:
 
@@ -133,7 +133,7 @@ map.put("difficulty", "impossibruuu");
 BugSenseHandler.sendExceptionMap(map, ex);
 ```
 
-#### Breadcrumbs
+### Breadcrumbs
 
 By adding breadcrumbs to your code you can easily see the trail the user followed before getting the crash. Just add the following API call at the points if interest in your code.
 
@@ -141,7 +141,7 @@ By adding breadcrumbs to your code you can easily see the trail the user followe
 BugSenseHandler.leaveBreadcrumb("PointA");
 ```
 
-#### ProGuard Support
+### ProGuard Support
 
 If you are using [ProGuard](http://www.saikoa.com/proguard), you should add the following line to your ProGuard configuration file to exclude BugSense from being obfuscated.
 
@@ -197,7 +197,7 @@ In order to use Proguard with BugSense successfully we suggest you use the follo
   public static final android.os.Parcelable$Creator *;
 ```
 
-#### LogCat Support
+### LogCat Support
 
 *Available on Entreprise plans*
 
@@ -253,7 +253,7 @@ In order to localize the fix notification, use the **setLocalizedNotification** 
 BugSenseHandler.setLocalizedNotification("Mi app", "Lo hemos corregido", "Por favor, actualice su aplicacion, este error ha sido corregido!");
 ```
 
-#### Exception Callback
+### Exception Callback
 
 You can use the last breath feature for a callback in your code when a crash occurs.
 
@@ -281,7 +281,7 @@ BugSenseHandler.setExceptionCallback(this);
 
 You can more details and an example in our related [blog post](http://blog.bugsense.com/post/40089742173/lastbreath-or-how-to-avoid-losing-the-state-of-a-game).
 
-#### Last Error ID
+### Last Error ID
 
 BugSense offers the ability to keep track of the last known error id and the number of the crashes.
 
@@ -300,11 +300,11 @@ String lastErrorID = BugSenseHandler.getLastCrashID();
 BugSenseHandler.clearTotalCrashesNum();
 ```
 
-#### Running app processes
+### Running app processes
 
 If you want to keep track of the number of the apps that are running along with your app when a crash occurs, then you only need to add the **android.permission.GET_TASKS** permission to your AndroidManifest file. BugSense will automatically count the running app processes and you will be able to see that number at the error instances at your dashboard.
 
-#### BugSense and ACRA
+### BugSense and ACRA
 
 1.    If you are using ACRA 4.x, you can use BugSense as your backend.
 
