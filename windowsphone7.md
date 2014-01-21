@@ -30,9 +30,7 @@ You can also use the [Package Management Dialog](http://docs.nuget.org/docs/star
 
 ![Installing BugSense via NuGet in Visual Studio 2012](/static/images/landing/screens/nuget.wp7.png "Installing BugSense via NuGet in Visual Studio 2012")
 
-Alternatively, you can download the <a href="">BugSense-WP7-<strong></strong>.zip</a><strong> <a href="/releases/windows8" id="releases">(Release Notes)</a></strong> file & add a reference to **BugSense-WP7.dll** in your Windows Project.
-
-Then, inside the **App.xaml.cs** file, add the following code inside the constructor.
+Inside the **App.xaml.cs** file, add the following code inside the constructor.
 
 ```c#
 public App()
