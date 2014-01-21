@@ -28,7 +28,7 @@ To install the BugSense SDK by using the Package Manager window in Visual Studio
 
 You can also use the [Package Management Dialog](http://docs.nuget.org/docs/start-here/managing-nuget-packages-using-the-dialog) in Visual Studio to install the 'BugSense.W8' package.
 
-![Installing BugSense via NuGet in Visual Studio 2012](/static/images/landing/screens/install.jpg "Installing BugSense via NuGet in Visual Studio 2012")
+![Installing BugSense via NuGet in Visual Studio 2012](/static/images/landing/screens/nuget.w8.png "Installing BugSense via NuGet in Visual Studio 2012")
 
 Alternatively, you can download the <a href="">BugSense-W8-<strong></strong>.zip</a><strong> <a href="/releases/windows8" id="releases">(Release Notes)</a></strong> file & add a reference to **BugSense-W8.dll** in your Windows Project.
 
