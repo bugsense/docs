@@ -32,7 +32,7 @@ To install the BugSense SDK by using the Package Manager window in Visual Studio
 
 You can also use the [Package Management Dialog](http://docs.nuget.org/docs/start-here/managing-nuget-packages-using-the-dialog) in Visual Studio to install the 'BugSense.Xamarin.Android' package.
 
-![Installing BugSense via NuGet in Visual Studio 2012](/static/images/landing/screens/install.jpg "Installing BugSense via NuGet in Visual Studio 2012")
+![Installing BugSense via NuGet in Visual Studio 2012](/static/images/landing/screens/Xamarin.Android.png "Installing BugSense via NuGet in Visual Studio 2012")
 
 In your MainLauncher activity:
 
