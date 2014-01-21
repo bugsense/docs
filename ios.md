@@ -7,7 +7,7 @@ Requirements
 1. BugSense for iOS works with iOS 4.0+, armv7+armv7s, with both device and simulator support.
 2. BugSense can be used with Xcode 4.2/iOS 5.0 and later.
 
-#### Integration
+### Integration
 
 Integrating BugSense in your project is very easy. Just follow the steps below.
 
@@ -68,9 +68,9 @@ A variable for the crash controller is not required. (If you specify one, the co
 
 If you crash the app while debugging, the crash will not be reported. You have to deploy the app to your device and then start it outside the debugging environment, as the end-user would.
 
-### Advanced features
+## Advanced features
 
-#### Sending custom data
+### Sending custom data
 
 BugSense also allows you to send custom data along with the crash report. All you need to do is create an NSDictionary with the data that you want to send:
 
@@ -88,7 +88,7 @@ The first argument is the **BugSense API key (NSString)**. The second argument i
 
 There are two ways to use custom data in your application. In standard mode, the crash controller sends the crash report on relaunch and uses the custom data that you provide in the factory method, as is. In immediate dispatch mode, it often makes sense to use an **NSMutableDictionary**, keep a reference to it and update the data as you go along.
 
-#### Search by username
+### Add user identifier
 
 BugSense allows to track closely the experience of any given users. Simply use the setUserIdentifier method to provide a user identifiers like an id number from you database, email, push id, username. In your dashboard, you will search for errors that affect that user. This is a great feature for apps with high ARPU or apps deployed in an MDM environment or during QA.
 
@@ -97,7 +97,7 @@ BugSense allows to track closely the experience of any given users. Simply use t
 [BugSenseController setUserIdentifier:@"239859"];
 ```
 
-#### Enabling immediate dispatch
+### Enabling immediate dispatch
 
 BugSense allows you to send reports as soon as the crash happens:
 
@@ -113,7 +113,7 @@ BugSense allows you to send reports as soon as the crash happens:
 
 This method executes async unsafe code inside the crash handler that could lead to unexpected results. Therefore, we strongly advise against it and suggest that it should only be used for debugging purposes.
 
-#### Bypassing IP restrictions
+### Bypassing IP restrictions
 
 There are cases where our servers are being blocked due to geographic restrictions (e.g. China). As a result the plugin cannot transmit the crash reports successfully. In that case you can enable the use of a proxy, as follows:
 
@@ -121,7 +121,7 @@ There are cases where our servers are being blocked due to geographic restrictio
 [BugSenseController setUsesProxy:YES];
 ```
 
-#### Exception logging
+### Exception logging
 
 Logging exceptions is very simple: use the BUGSENSE_LOG macro to post the exception and its stacktrace along with the optional extra data to identify it, e.g:
 
@@ -143,7 +143,7 @@ The BUGSENSE_LOG macro is a shorthand for this:
 
 This uses the **logException:withExtraData:** method on the shared controller singleton, which is returned by the +sharedController method. BugSense automatically captures the key values of the exception's userDictionary as well.
 
-#### Track application flow
+### Breadcrumbs
 
 You can use breadcrumbs to keep track of the user's path in the application. These are transmitted along with crash reports. The leaveBreadcrumb: method takes an NSString as argument:
 
@@ -151,7 +151,7 @@ You can use breadcrumbs to keep track of the user's path in the application. The
 [BugSenseController leaveBreadcrumb:@"DetailViewController"];
 ```
 
-#### Events
+### Sending custom Events
 
  You can use BugSense events to track users' actions in your application. The maximum length for the **NSString** tag describing the event is 256 characters.
 
@@ -159,11 +159,11 @@ You can use breadcrumbs to keep track of the user's path in the application. The
  [BugSenseController sendCustomEventWithTag:@"custom_event"];
  ```
 
-#### Callback after all errors have been sent
+### Callback after all errors have been sent
 
 Using **+setErrorNetworkOperationsCompletionBlock:** you can set a block to be called by the plug-in when there are no more errors to be transmitted. Bear in mind that this does not guarantee that they have been successfully transmitted, they may have been cached for future transmission.
 
-#### Last sent crash information
+### Last sent crash information
 
 You can access the id of the last crash that was sent by BugSense by using the **+lastCrashId** method. Also, you can access the number of crashes since the last reset using **+crashCount** method. You can reset this number by calling the **+resetCrashCount** method.
 
@@ -181,7 +181,7 @@ These functions, combined with the callback method described in the previous sec
 }];
 ```
 
-#### Dispatch of system log messages
+### Dispatch of system log messages
 
 Along with your crash reports, you can send the last log messages from when the crash happened so that you have a better idea of the environment at the time of the crash. You can specify how many messages you want logged and at which logging level. For example, to keep the last 10 messages at logging level 8 you should write:
 
