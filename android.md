@@ -6,7 +6,7 @@
 
 * Android SDK 1.6 (Version 4) or later
 
-1.    Your first step is to copy the <a href="">bugsense-<strong></strong>.zip</a><strong> <a href="/releases/android" id="releases">(Release Notes)</a></strong> or use [Maven](http://blog.bugsense.com/post/43988856467/maven-repo-for-bugsense-now-available) into your project's libs folder. If this folder do not exist, you have to create it. Import it to your project by adding the following line at the top of your Activity's class file:
+1.    Your first step is to copy the <a href="">bugsense-<strong></strong>.zip</a><strong> <a href="/releases/android" id="releases">(Release Notes)</a></strong> or use [Maven](http://blog.bugsense.com/post/43988856467/maven-repo-for-bugsense-now-available) into your project's libs folder. If this folder does not exist, you have to create it. Import it to your project by adding the following line at the top of your Activity's class file:
 
       ```java
       import com.bugsense.trace.BugSenseHandler;
