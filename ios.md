@@ -35,10 +35,10 @@ You can also symbolicate the crash reports on the device. (Keep in mind that by 
 
 In your target's Build Settings, set the following values for all configurations (typically Debug and Release)
 
-Strip Debug Symbols During Copy: **No**
-Strip Linked Product: **No**
-Deployment Postprocessing: **No**
-Generate Debug Symbols: **Yes**
+* Strip Debug Symbols During Copy: **No**
+* Strip Linked Product: **No**
+* Deployment Postprocessing: **No**
+* Generate Debug Symbols: **Yes**
 
 Your project should be working fine with those settings. However, if you find that reporting or symbolication is problematic, try adding ```-ObjC``` and ```-all_load``` in the Other Linker Flags in your target's properties.
 
