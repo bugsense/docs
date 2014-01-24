@@ -40,7 +40,7 @@ Strip Linked Product: **No**
 Deployment Postprocessing: **No**
 Generate Debug Symbols: **Yes**
 
-Your project should be working fine with those settings. However, if you find that reporting or symbolication is problematic, try adding `-ObjC` and `-all_load` in the Other Linker Flags in your target's properties.
+Your project should be working fine with those settings. However, if you find that reporting or symbolication is problematic, try adding ```-ObjC``` and ```-all_load``` in the Other Linker Flags in your target's properties.
 
 ### Basic Bugsense use
 
