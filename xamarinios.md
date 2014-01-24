@@ -8,7 +8,7 @@
 2. NuGet (latest version)
 3. Xamarin iOS
 
-**Important!** You'll need a *BugSense iOS* project to use the Xamarin Android library.
+**Important!** You'll need a *BugSense iOS* project to use the Xamarin iOS library.
 
 **Installation**
 
