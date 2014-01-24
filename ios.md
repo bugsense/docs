@@ -1,18 +1,15 @@
 ## iOS
 
-### Installing Bugsense
+### Requirements
 
-Requirements
-
-1. BugSense for iOS works with iOS 4.0+, armv7+armv7s, with both device and simulator support.
-2. BugSense can be used with Xcode 4.2/iOS 5.0 and later.
+BugSense for iOS works with iOS 4.0 and newer versions, and supports armv7, armv7s and arm64 architectures, as well as the iOS Simulator. The latest stable version of Xcode is recommended.
 
 ### Integration
 
 Integrating BugSense in your project is very easy. Just follow the steps below.
 
 1. Download the <a href="">BugSense-iOS[<strong></strong>].zip</a><strong> <a href="/releases/ios" id="releases">(Release Notes)</a></strong> file, and unzip it.
-2. In Xcode, select the target you want to use and, in the **Build Phases** tab expand the **Link Binary With Libraries*8 section, press the + button, then press **Add Other...**. In the dialog box that appears, go to the framework's location and select it. (The framework is a folder and you should add the whole folder into your project.)
+2. In Xcode, select the target you want to use and, in the **Build Phases** tab expand the **Link Binary With Libraries** section, press the + button, then press **Add Other...**. In the dialog box that appears, go to the framework's location and select it. (The framework is a folder and you should add the whole folder into your project.)
 3. The framework will appear at the top of the **Link Binary With Libraries** section and will also be added to your project files (left-hand pane).
 4. BugSense depends on **SystemConfiguration.framework** and **libz.dylib**. Add them to your project by selecting them from the list of frameworks in **Link Binary With Libraries**.
 
@@ -43,7 +40,7 @@ Strip Linked Product: **No**
 Deployment Postprocessing: **No**
 Generate Debug Symbols: **Yes**
 
-*Your project should be working fine with those settings. However, if you find that reporting or symbolication is problematic, try this: * In your target's properties, * in Other Linker Flags add -ObjC * additionally, in Other Linker Flags add -all_load*
+Your project should be working fine with those settings. However, if you find that reporting or symbolication is problematic, try adding `-ObjC` and `-all_load` in the Other Linker Flags in your target's properties.
 
 ### Basic Bugsense use
 
