@@ -128,7 +128,7 @@ Debug.WriteLine("Response: {0}", result.ServerResponse);
 
 Be aware that the parameter for extra data is optional; simply invoke the method with the **Exception** object only.
 
-#### Send an immediate exception with custom data
+### Send an immediate exception with custom data
 
 You can use BugSense to immediately try to send an exception with custom data.
 
@@ -147,7 +147,7 @@ BugSenseResponseResult sendResult = await BugSenseHandler.Instance.SendException
 
 Note that the LimitedCrashExtraDataList second parameter is optional, you can omit if you want and just send an exception report with no custom data.
 
-#### Search by username
+### Search by username
 
 BugSense enables you to closely track the experience of users. Use the **UserIdentifier** property to provide a user identifier such as an ID number from a customer database, e-mail address, push ID, or username. In your dashboard, you search for errors that affect that user. This feature is ideal for apps with high average revenue per user (ARPU) or apps deployed in a mobile device management (MDM) environment or during your app's quality assurance (QA) phase.
 
@@ -155,7 +155,7 @@ BugSense enables you to closely track the experience of users. Use the **UserIde
 BugSenseHandler.UserIdentifier = "A VALUE";
 ```
 
-#### Add breadcrumbs and custom data to crash reports
+### Add breadcrumbs and custom data to crash reports
 
 You can add "breadcrumbs" and other custom data to your crash reports.
 
@@ -186,7 +186,7 @@ BugSenseHandler.Instance.RemoveCrashExtraData("A Key To Remove");
 
 Note that global custom extra data are merged with additional extra data to the specific exception passed in the LogException/LogExceptionAsync or SendExceptionAsync.
 
-#### Set an action to be executed before the app crashes (save state)
+### Set an action to be executed before the app crashes (save state)
 
 You can specify an action that is to be executed just before an app crashes.
 
@@ -194,7 +194,7 @@ You can specify an action that is to be executed just before an app crashes.
 BugSenseHandler.Instance.LastActionBeforeTerminate(Debug.WriteLine("Last Action Invoked!"));
 ```
 
-#### Use BugSense along with the Visual Studio debugger
+### Use BugSense along with the Visual Studio debugger
 
 You can use BugSense alongside the Visual Studio debugger.
 
@@ -206,7 +206,7 @@ BugSenseHandler.Instance.HandleWhileDebugging = true;
 
 Note that this property is explicit to the SDK and have no impact to the debugger attached in your application, do not release your application with this property set to false.
 
-#### Track an event
+### Track an event
 
 You can use BugSense to track a specific event.
 
@@ -219,7 +219,7 @@ BugSenseLogResult logResultAsync = await BugSenseHandler.Instance.LogEventAsync(
 BugSenseResponseResult sendResultAsync = BugSenseHandler.Instance.SendEventAsync("Test Send Event!");
 ```
 
-#### CrashOnLastRun example
+### CrashOnLastRun example
 
 Add the following code to the **App.xaml.cs** file, or to your **MainPage.xaml.cs** file's **NavigateTo** or **Loaded** events. Where you place it depends on where you first want to check for the total crashes that have occurred in the client's app install, and then act. Since these methods are asynchronous, you should always take any actions as late as possible, while giving BugSense time to send all the logged unhandled exception crashes of the last session to the server and to update the properties, so the results are accurate.
 
@@ -239,7 +239,7 @@ this.Loaded += async (sender, args) =>
 };
 ```
 
-#### Async void and unobserved task exceptions
+### Async void and unobserved task exceptions
 
 BugSense will log any asynchronous unawaited void or unobserved task exceptions.
 In general there is no need to run this explicitly, but in platforms like the Windows Phone the SynchronizationContext might not be initializes in the system in early phase like the App constructor, so a good practice would be to register in your main application page.
@@ -252,7 +252,7 @@ BugSenseHandler.Instance.RegisterAsyncHandlerContext();
 }
 ```
 
-#### Send logged requests on demand
+### Send logged requests on demand
 
 You can send all logged requests on demand with the following method:
 
@@ -260,7 +260,7 @@ You can send all logged requests on demand with the following method:
 await BugSenseHandler.Instance.Flush();
 ```
 
-#### Event notifications
+### Event notifications
 
 You can register to BugSense events and get notified when unhadled exceptions and logged requests are handled.
 
@@ -278,7 +278,7 @@ BugSenseHandler.Instance.LoggedRequestHandled += (sender, args) =>
                     args.BugSenseLoggedResponseResult.ServerResponse);
 ```
 
-#### Close a session
+### Close a session
 
 Send a GNIP request to close a session.
 
