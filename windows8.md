@@ -57,6 +57,8 @@ To send custom UI messages to the user there is more than one method.
 
 When immediately send an exception to BugSense you can examine the BugSenseResponseResult return object where is the property IsResolved, which corresponds to the specific error that has occurred. You'll also find the ContentText, ContentTitle, TickerText properties, which are set in your dashboard settings. You should first make sure that the exception is sent successfully with the corresponding ResultState property.
 
+If you log exceptions in general you should register to the LoggedRequestHandled event explained in the event notifications section.
+
 ### Log handled exceptions and send custom data
 
 To use BugSense to log handled exceptions and send useful custom data:
