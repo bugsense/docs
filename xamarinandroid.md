@@ -155,7 +155,7 @@ Note that the LimitedCrashExtraDataList second parameter is optional, you can om
 BugSense enables you to closely track the experience of users. Use the **UserIdentifier** property to provide a user identifier such as an ID number from a customer database, e-mail address, push ID, or username. In your dashboard, you search for errors that affect that user. This feature is ideal for apps with high average revenue per user (ARPU) or apps deployed in a mobile device management (MDM) environment or during your app's quality assurance (QA) phase.
 
 ```c#
-BugSenseHandler.UserIdentifier = "A VALUE";
+BugSenseHandler.Instance.UserIdentifier = "A VALUE";
 ```
 
 #### Add breadcrumbs and custom data to crash reports
