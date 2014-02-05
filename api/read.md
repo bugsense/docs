@@ -8,11 +8,11 @@ This is the first version of the API, and we look forward to your feedback.
 
 You will find your access token under your [account page](https://www.bugsense.com/account).
 
-### Available API Actions
+## Available API Actions
 
 Here are some examples of supported API commands, and the corresponding responses. These examples are shown in the form of 'curl' commands. Curl is a command line utility used to perform HTTP requests, and is available on most Unix systems, but you can use any tool or language which can submit a corresponding HTTP request.
 
-#### Get projects
+### Get projects
 
 ```curl --header "X-BugSense-Auth-Token: YOUR_API_TOKEN" https://www.bugsense.com/api/v1/project/YOUR_API_KEY/errors.json```
 
@@ -65,7 +65,7 @@ Additional Parameters
 * message, ex: outofmemory
 * order [created, updated, total]
 
-#### Get Error
+### Get Error
 
 ```curl --header "X-BugSense-Auth-Token: YOUR_API_TOKEN" https://www.bugsense.com/api/v1/project/YOUR_API_KEY/errors/ERROR_ID.json```
 
@@ -99,7 +99,7 @@ Response
 }
 ```
 
-#### Get Insights
+### Get Insights
 
 ```curl --header "X-BugSense-Auth-Token: YOUR_API_TOKEN" https://www.bugsense.com/api/v1/project/YOUR_API_KEY/analytics.json```
 
@@ -128,5 +128,8 @@ Response
 #### Upload dSYM
 
 ```python bugsense_cli.py YOUR_API_KEY YOUR_API_TOKEN -dsym ../dsyms/crash-me3.app.dSYM```
+
+### Upload Proguard Mappings file
+```python bugsense_cli.py YOUR_API_KEY YOUR_API_TOKEN -mappings mappings1.4.txt -app_version 1.4```
 
  In order to upload a dSYM use the sample [Python BugSense API client](https://gist.github.com/PanosJee/5004886).
