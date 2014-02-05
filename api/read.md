@@ -125,7 +125,7 @@ Response
 * analytics/top_errors.json
 * analytics/trending_errors.json
 
-#### Upload dSYM
+### Upload dSYM
 
 ```python bugsense_cli.py YOUR_API_KEY YOUR_API_TOKEN -dsym ../dsyms/crash-me3.app.dSYM```
 
