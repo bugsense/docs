@@ -45,7 +45,7 @@
       BugSenseHandler.startSession(MyActivity.this);
       ```
 
-      Whenever you want to close the session, you can use the **closeSession88 method as follows:
+      Whenever you want to close the session, you can use the **closeSession** method as follows:
 
       ```java
       BugSenseHandler.closeSession(MyActivity.this);
