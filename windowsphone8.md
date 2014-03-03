@@ -38,7 +38,7 @@ Then, inside the **App.xaml.cs** file, add the following code inside the constru
 public App()
 {
   // Initialize BugSense
-  BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), "API_KEY");
+  BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "API_KEY");
   // Other Windows Store specific operations
 }
 ```
