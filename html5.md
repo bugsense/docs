@@ -22,7 +22,7 @@ or add it in your **bower.json** file
     "**/*.txt"
   ],
   "dependencies": {
-    "bugsense": "2.0.0",
+    "bugsense": "2.0.1",
   }
 }
 ```
@@ -34,7 +34,7 @@ Include the script in your HTML page and initialize it.
 ```html
 <script src="http://www.bugsense.com/static/js/global/bugsense.js" type='text/javascript'></script>
 <script type="text/javascript">
-  var bugsense = new Bugsense( { apiKey: 'YOUR_API_KEY' } );
+  Bugsense.initAndStartSession({ apiKey: 'YOUR_API_KEY' });
 </script>
 ```
 
@@ -54,7 +54,7 @@ Bugsense.js allows you to register handled exception as well and append metadata
 try {
    rotateScreen();
 } catch ( error ) {
-   bugsense.notify( error, { rotation: 'not supported' } );
+   Bugsense.notify( error, { rotation: 'not supported' } );
 };
 ```
 
@@ -62,35 +62,35 @@ try {
 You can add extraData to the BugSense crash reports as well as breacrumbs to help you debug your app faster!
 
 #### Managing extraData
-In order to add extra data in your instace, you can use the **bugsense.addExtraData** function.
+In order to add extra data in your instace, you can use the **Bugsense.addExtraData** function.
 ```js
 /* add metadata */
-bugsense.addExtraData( 'user_level', 'paid' );
-bugsense.addExtraData( 'account', 'CEO' );
+Bugsense.addExtraData( 'user_level', 'paid' );
+Bugsense.addExtraData( 'account', 'CEO' );
 ```
 
-If you want to remove extra data, you can use the **bugsense.removeExtraData** and passing the key as a parameter.
+If you want to remove extra data, you can use the **Bugsense.removeExtraData** and passing the key as a parameter.
 ```js
 /* Removing metadata by key */
-bugsense.removeExtraData('user_level');
+Bugsense.removeExtraData('user_level');
 ```
 
-Or you can clear all metadata by using **bugsense.clearExtraData**.
+Or you can clear all metadata by using **Bugsense.clearExtraData**.
 ```js
 /* Clear all metadata */
-bugsense.clearExtraData();
+Bugsense.clearExtraData();
 ```
 
 #### Managing Breadcrumbs
-By adding breadcrumbs to your code you can easily see the trail the user followed before getting the crash. Just leave a breadcrumb by using **bugsense.leaveBreadcrumb**.
+By adding breadcrumbs to your code you can easily see the trail the user followed before getting the crash. Just leave a breadcrumb by using **Bugsense.leaveBreadcrumb**.
 ```js
 /* leave breadcrumb */
-bugsense.leaveBreadcrumb( 'Fetch Friendlist' );
+Bugsense.leaveBreadcrumb( 'Fetch Friendlist' );
 ```
 Also, you can also clear all breadcrumbs
 ```js
 /* clear breadcrumbs */
-bugsense.clearBreadcrumbs();
+Bugsense.clearBreadcrumbs();
 ```
 
 ### Registering events
@@ -100,8 +100,8 @@ Bugsense.js provides an easy way for developers to use events in order to handle
 function ooops() {
   alert('Ooops! Our app just crashed. Please send us an email at support@example.com');
 }
-bugsense.on("crash", ooops);
+Bugsense.on("crash", ooops);
 ```
 When this is done, you can unregister the event to avoid spamming your users with countless alerts of notifications.
 ```js
-bugsense.off("crash", ooops);
+Bugsense.off("crash", ooops);
