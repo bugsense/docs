@@ -2,7 +2,7 @@
 
 ### Using the Javascript library
 
-Download the <a href="">bugsense-<strong></strong>.js</a><strong> <a href="/releases/html5" id="releases">(Release Notes)</a></strong> file (or download the [minified version](https://github.com/bugsense/bugsense.js/blob/master/bugsense.min.js)) and store in it along with your other Javascript files.
+Download the <a href="">bugsense-<strong></strong>.js</a><strong> <a href="/releases/html5" id="releases">(Release Notes)</a></strong> file (or download the [minified version](https://github.com/bugsense/bugsense.js)) and store in it along with your other Javascript files.
 
 You can also use [Bower](http://bower.io/) to install BugSense in your project.
 
@@ -32,11 +32,23 @@ Alternatively you can use the BugSense hosted version (see the following Gist).
 Include the script in your HTML page and initialize it.
 
 ```html
-<script src="http://www.bugsense.com/static/js/global/bugsense.js" type='text/javascript'></script>
+<script src="/path/to/bugsense.js" type='text/javascript'></script>
 <script type="text/javascript">
   Bugsense.initAndStartSession({ apiKey: 'YOUR_API_KEY' });
 </script>
 ```
+
+### Downloads
+
+#### Standard Builds
+
+* Development: [bugsense.js](/static/js/libs/2.0.1/bugsense.js)
+* Production: [bugsense.min.js](/static/js/libs/2.0.1/bugsense.min.js)
+
+#### AMD/RequireJS Builds
+
+* Development: [bugsense.js](/static/js/libs/2.0.1/amd/bugsense.js)
+* Production: [bugsense.min.js](/static/js/libs/2.0.1/amd/bugsense.min.js)
 
 *For more initialization options, read our [API docs](https://github.com/bugsense/bugsense.js/blob/master/README.md).*
 
