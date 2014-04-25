@@ -2,7 +2,7 @@
 
 ### Using the Javascript library
 
-Download the <a href="">bugsense-<strong></strong>.js</a><strong> <a href="/releases/html5" id="releases">(Release Notes)</a></strong> file (or download the [minified version](https://github.com/bugsense/bugsense.js)) and store in it along with your other Javascript files.
+Download the <a href="">bugsense-<strong></strong>.js</a><strong> <a href="/releases/html5" id="releases">(Release Notes)</a></strong> file (or download one of our builds) and store in it along with your other Javascript files.
 
 You can also use [Bower](http://bower.io/) to install BugSense in your project.
 
@@ -52,13 +52,13 @@ Include the script in your HTML page and initialize it.
 
 *For more initialization options, read our [API docs](https://github.com/bugsense/bugsense.js/blob/master/README.md).*
 
-Older mobile browsers do not support the window.onerror callback and therefore the plugin will not receive any uncaught exception.
+> Older mobile browsers do not support the window.onerror callback and therefore the plugin will not receive any uncaught exception.
 
-When there's only the Error object caught, error.stack will be parsed to get the url and line number.
+> When there's only the Error object caught, error.stack will be parsed to get the url and line number.
 
-Deobfuscation or retracing for minified and/or obfuscated Javascript files is not supported yet.
+> Deobfuscation or retracing for minified and/or obfuscated Javascript files is not supported yet.
 
-Bugsense.js uses CORS to send crash reports.
+> Bugsense.js uses CORS to send crash reports.
 
 ### Registering handled exceptions
 Bugsense.js allows you to register handled exception as well and append metadata to the crash report.
