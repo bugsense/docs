@@ -65,6 +65,8 @@
 
 You have the option to add extra custom information to the crash reports. In order to do this, use the crash extra map.
 
+Please have in mind that the extra data values have a length limit set to 128 characters.
+
 Use the **addCrashExtraData** method below to add key value pairs to the extra map:
 
 ```java
