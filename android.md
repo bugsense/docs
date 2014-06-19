@@ -281,7 +281,7 @@ public void lastBreath(Exception ex) {
 BugSenseHandler.setExceptionCallback(this);
 ```
 
-You can more details and an example in our related [blog post](http://blog.bugsense.com/post/40089742173/lastbreath-or-how-to-avoid-losing-the-state-of-a-game).
+You can read more details and an example in our related [blog post](http://blog.bugsense.com/post/40089742173/lastbreath-or-how-to-avoid-losing-the-state-of-a-game).
 
 ### Last Error ID
 
