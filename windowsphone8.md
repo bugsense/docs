@@ -47,7 +47,6 @@ public App()
   // Other specific operations
 }
 
-```c#
 // For the Windows Phone 8.1 RT / XAML Universal there is a minor difference to the InitAndStartSession method parameters.
 // Omit the RootFrame parameter.
 // This is the only difference between platforms architecture. All the remainder SDK documentation is the exact same and behavior
