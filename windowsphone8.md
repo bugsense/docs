@@ -1,4 +1,4 @@
-## Windows Phone 8
+## Windows Phone 8.0 - 8.1 Silverlight / RT / Universal XAML
 
 ### Using the Windows Phone 8 library
 
@@ -26,11 +26,15 @@ To install the BugSense SDK by using the Package Manager window in Visual Studio
 4. Click the **Install** button for the BugSense package that you want to install.
 5. In the **Select Projects** window, select the checkboxes next to the projects in which you want to install the package, and then click **OK**
 
-You can also use the [Package Management Dialog](http://docs.nuget.org/docs/start-here/managing-nuget-packages-using-the-dialog) in Visual Studio to install the 'BugSense.WP8' package.
+You can also use the [Package Management Dialog](http://docs.nuget.org/docs/start-here/managing-nuget-packages-using-the-dialog) in Visual Studio to install the desired package.
+
+Available packages are 'BugSense.WP8' for Windows Phone 8.0 / 8.1 Silverlight applications, 'BugSense.WP81' for Windows Phone 8.1 Runtime applications, 'BugSense.XAML81' for the Universal XAML (Windows 8.1 / Windows Phone 8.1) shared applications. Choose accordingly to your architecture of application you are creating.
 
 ![Installing BugSense via NuGet in Visual Studio 2012](/static/images/landing/screens/nuget.wp8.png "Installing BugSense via NuGet in Visual Studio 2012")
 
 Alternatively, you can download the <a href="">BugSense-WP8-<strong></strong>.zip</a><strong> <a href="/releases/windows8" id="releases">(Release Notes)</a></strong> file & add a reference to **BugSense-WP8.dll** in your Windows Project.
+
+```Windows Phone 8.1 RT / Universal XAML are only available through Nuget```
 
 Then, inside the **App.xaml.cs** file, add the following code inside the constructor.
 
@@ -39,11 +43,25 @@ public App()
 {
   // Initialize BugSense
   BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), RootFrame, "API_KEY");
-  // Other Windows Store specific operations
+  // Other specific operations
 }
+
+```c#
+// For the Windows Phone 8.1 RT / XAML Universal there is a minor difference to the InitAndStartSession method parameters.
+// Omit the RootFrame parameter.
+// This is the only difference between platforms architecture. All the remainder SDK documentation is the exact same and behavior
+public App()
+{
+  // Initialize BugSense
+  BugSenseHandler.Instance.InitAndStartSession(new ExceptionManager(Current), "API_KEY");
+  // Other specific operations
+}
+
+Please mention that the new Microsoft APIs might be missing availability of system information and in Windows Phone 8.1 RT / XAML universal application you may experience missing information regarding the Windows Phone device or carrier.
+
 ```
 
-You can remove any **UnhandledException** handlers as follows:
+You can remove any **UnhandledException** handlers as follows if it appears in your app.xaml.cs file:
 
 ```c#
 UnhandledException += Application_UnhandledException;
