@@ -1,5 +1,5 @@
 ## Windows Phone 8.0 
-## Windows Phone 8.1 Silverlight / RT / Universal XAML
+## Windows Phone 8.1 Silverlight / RT / Universal
 
 ### Using the Windows Phone 8 library
 
