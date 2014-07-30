@@ -138,3 +138,7 @@ or
 or
 
 ```curl -F file=@"/path/to/mapping.txt" --header "X-Bugsense-apikey: YOUR_API_KEY" --header "X-Bugsense-auth-token: YOUR_API_TOKEN" --header "X-Bugsense-appver: YOUR_APP_VERSION" https://symbolicator.splkmobile.com/upload/mapping -i```
+
+ In order to upload a dSYM use the sample [Python BugSense API client](https://gist.github.com/PanosJee/5004886) or with the curl command.
+ 
+ 
