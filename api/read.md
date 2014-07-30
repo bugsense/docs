@@ -126,8 +126,6 @@ Response
 * analytics/trending_errors.json
 
 ### Upload dSYM
-
-```python bugsense_cli.py YOUR_API_KEY YOUR_API_TOKEN -dsym ../dsyms/crash-me3.app.dSYM```
 ```curl -F file=@"/path/to/dsym.zip" --header "X-Bugsense-apikey: YOUR_API_KEY --header "X-Bugsense-auth-token: YOUR_API_TOKEN" https://symbolicator.splkmobile.com/upload/dsym -i ```
 
 ### Upload Proguard Mappings file
