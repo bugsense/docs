@@ -128,8 +128,7 @@ Response
 ### Upload dSYM
 
 ```python bugsense_cli.py YOUR_API_KEY YOUR_API_TOKEN -dsym ../dsyms/crash-me3.app.dSYM```
+```curl -F file=@"/path/to/dsym.zip" --header "X-Bugsense-apikey: YOUR_API_KEY --header "X-Bugsense-auth-token: YOUR_API_TOKEN" https://symbolicator.splkmobile.com/upload/dsym -i ```
 
 ### Upload Proguard Mappings file
-```python bugsense_cli.py YOUR_API_KEY YOUR_API_TOKEN -mappings mappings1.4.txt -app_version 1.4```
-
- In order to upload a dSYM use the sample [Python BugSense API client](https://gist.github.com/PanosJee/5004886).
+```curl -F file=@"/path/to/mapping.txt" --header "X-Bugsense-apikey: YOUR_API_KEY" --header "X-Bugsense-auth-token: YOUR_API_TOKEN" --header "X-Bugsense-appver: YOUR_APP_VERSION" https://symbolicator.splkmobile.com/upload/mapping -i```
