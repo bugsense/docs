@@ -197,6 +197,7 @@ In order to use Proguard with BugSense successfully we suggest you use the follo
 
 -keep class * implements android.os.Parcelable {
   public static final android.os.Parcelable$Creator *;
+}
 ```
 
 ### LogCat Support
