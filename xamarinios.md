@@ -56,6 +56,8 @@ public partial class AppDelegate : UIApplicationDelegate
 
 Now you can ship your application and stay cool. We will make sure you won't miss a bug.
 
+If you crash the app while debugging, the crash will not be reported. You have to deploy the app to your device and then start it outside the debugging environment, as the end-user would.
+
 ### End user communication
 
 To send custom UI messages to the user there is more than one method.
